@@ -64,7 +64,7 @@ export default function App() {
       setLoadingStep(0);
       interval = setInterval(() => {
         setLoadingStep(prev => (prev < loadingSteps.length - 1 ? prev + 1 : prev));
-      }, 2500);
+      }, 1200);
     } else {
       clearInterval(interval);
     }
@@ -153,7 +153,7 @@ export default function App() {
               </div>
               <div className="text-center space-y-4 max-w-md">
                 <h3 className="text-2xl font-display font-bold text-blue-400">{loadingSteps[loadingStep]}</h3>
-                <p className="text-white/40 text-sm animate-pulse">This usually takes 10-15 seconds as we fetch real-time data.</p>
+                <p className="text-white/40 text-sm animate-pulse">This usually takes 5-8 seconds as we fetch real-time data.</p>
                 <div className="flex gap-2 justify-center flex-wrap">
                   {loadingSteps.map((_, idx) => (
                     <div 

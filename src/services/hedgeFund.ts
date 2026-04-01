@@ -21,7 +21,7 @@ export interface HedgeFundDecision {
 
 export async function runHedgeFundAnalysis(ticker: string): Promise<HedgeFundDecision> {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.1-flash-lite-preview",
     contents: `Analyze the stock ${ticker} as an AI Hedge Fund Team. 
     Provide a detailed report from the following agents:
     1. Market Data Agent (Current price, volume, trends)
@@ -51,7 +51,7 @@ export async function runHedgeFundAnalysis(ticker: string): Promise<HedgeFundDec
     config: {
       tools: [{ googleSearch: {} }],
       responseMimeType: "application/json",
-      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
+      thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
       responseSchema: {
         type: Type.OBJECT,
         properties: {
